@@ -27,10 +27,8 @@ def get_meeting_tool(client: MeetStreamClient) -> BaseTool:
         Returns:
             A dict with `meeting_id`, `status`, and (when known) `platform`,
             `meeting_url`, `title`, `started_at`, `ended_at`, and
-            `custom_attributes`. Several of these are commonly `None` --
-            MeetStream's status endpoint does not expose a meeting title or
-            join/leave timestamps; see this package's README "Known
-            limitations" section.
+            `custom_attributes`. `title` is always `None`: MeetStream has
+            no meeting title.
 
         Raises:
             langchain_meetstream.MeetStreamAPIError: `code="meeting_not_found"`

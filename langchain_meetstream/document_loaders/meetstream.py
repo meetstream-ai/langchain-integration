@@ -81,8 +81,8 @@ class MeetStreamLoader(BaseLoader):
         # Best-effort: enriches every segment's metadata with meeting-level
         # context (title, platform) so a retriever can filter/cite by meeting
         # without a second lookup. Fetched once per `lazy_load()` call, not
-        # once per segment. `title`/`platform` are frequently `None` (MeetStream's
-        # status endpoint doesn't return them) -- but that's still more useful than
+        # once per segment. `title` is always `None` (MeetStream has no meeting
+        # title) and `platform` can be `None` -- but that's still more useful than
         # omitting the keys entirely, since a caller can rely on the key
         # always being present. A metadata-fetch failure does not fail the
         # whole load: the transcript itself is the primary content this
